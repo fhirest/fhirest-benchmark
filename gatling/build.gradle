@@ -1,0 +1,16 @@
+plugins {
+  id "io.gatling.gradle" version "3.7.2"
+}
+
+repositories {
+  mavenCentral()
+}
+
+gatling {
+  simulations = { include "**/TestSimulation.java" }
+  systemProperties = [
+      'timeFactor'          : project.timeFactor,
+      'userFactor'          : project.userFactor,
+      'fhirUrl'             : project.fhirUrl
+  ]
+}
